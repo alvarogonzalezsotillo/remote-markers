@@ -1,7 +1,7 @@
 remote-markers
 ==============
 
-Experimental fork of Markers for Android (https://code.google.com/p/markers-for-android/). It adds features for share the current drawing.
+Experimental fork of Markers for Android (https://code.google.com/p/markers-for-android/). It adds features to share the current drawing.
 
 The following share methods are planned:
 
