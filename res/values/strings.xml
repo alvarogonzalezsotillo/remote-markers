@@ -15,7 +15,7 @@
   limitations under the License.
 -->
 <resources>
-    <string name="app_name">Remote Markers</string>
+    <string name="app_name">remote-markers</string>
     <string name="about_title">About Remote Markers</string>
     <string name="qr_title">QR Code for Markers</string>
     <string name="about_text">

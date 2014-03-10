@@ -46,9 +46,10 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.google.android.apps.markers.webserver.BitmapSource;
 import org.dsandler.apps.markers.R;
 
-public class Slate extends View {
+public class Slate extends View implements BitmapSource {
 
     static final boolean DEBUG = false;
     static final String TAG = "Slate";
@@ -745,6 +746,13 @@ public class Slate extends View {
             newc.drawBitmap(b, 0, 0, null);
         }
         return newb;
+    }
+
+    /*
+     Implementation of BitmapSource
+     */
+    public Bitmap currentBitmap(){
+        return copyBitmap(true);
     }
 
     public void setPenColor(int color) {

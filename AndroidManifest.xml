@@ -16,8 +16,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.dsandler.apps.markers" android:versionCode="56" android:versionName="1.2.3">
     <uses-sdk android:targetSdkVersion="19" android:minSdkVersion="5"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <supports-screens android:anyDensity="true"/>
-    
+
     <!-- Support any Android device with a pointer -->
     <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
 
@@ -33,7 +34,7 @@
                 <data android:mimeType="image/*"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
-            
+
         </activity>
     </application>
 </manifest>

@@ -64,6 +64,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.apps.markers.webserver.MarkersWebServer;
 import org.dsandler.apps.markers.R;
 
 import com.google.android.apps.markers.ToolButton.SwatchButton;
@@ -105,6 +106,8 @@ public class MarkersActivity extends Activity
     private SharedPreferences mPrefs;
 
     private LinkedList<String> mDrawingsToScan = new LinkedList<String>();
+
+    private MarkersWebServer mWebServer;
 
     protected MediaScannerConnection mMediaScannerConnection;
     private String mPendingShareFile;
@@ -231,6 +234,8 @@ public class MarkersActivity extends Activity
             mZoomView.setAlpha(0);
         }
         root.addView(mZoomView, 0);
+
+        mWebServer = new MarkersWebServer(mSlate);
         
         mMediaScannerConnection =
                 new MediaScannerConnection(MarkersActivity.this, mMediaScannerClient); 
