@@ -67,7 +67,7 @@ public class Slate extends View implements BitmapSource {
     
     public static final int MAX_POINTERS = 10;
 
-    static final int DENSITY = 1;
+    static final int DENSITY = 2;
 
     private static final int SMOOTHING_FILTER_WLEN = 6;
     private static final float SMOOTHING_FILTER_POS_DECAY = 0.65f;
@@ -782,8 +782,8 @@ public class Slate extends View implements BitmapSource {
         if (bytesPerCanvas * (numVersions + 2) > memCeiling) {
             numVersions = memCeiling / bytesPerCanvas - 2;
         }
-        if (numVersions < 1) { // uh get some RAM already
-            numVersions = 1;
+        if (numVersions < 2) { // uh get some RAM already
+            numVersions = 2; // AGS: Ensure some versions to avoid problem in Tile.createVersion
         }
 
         Log.v(TAG, String.format(

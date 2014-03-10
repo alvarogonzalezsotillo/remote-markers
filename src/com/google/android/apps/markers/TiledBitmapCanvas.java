@@ -19,7 +19,7 @@ public class TiledBitmapCanvas implements CanvasLite {
 
     private boolean mDebug = false;
     private int mTileSize = DEFAULT_TILE_SIZE;
-    private int mMaxVersions = DEFAULT_NUM_VERSIONS;
+    private final int mMaxVersions;
 
     private class Tile {
         private class Version {
@@ -71,7 +71,8 @@ public class TiledBitmapCanvas implements CanvasLite {
                 v = versions.get(N-1);
                 versions.remove(N-1);
                 v.version = version;
-                bottom = versions.get(N-2).version;
+                int index = Math.max(N-2, 0);
+                bottom = versions.get(index).version;
                 v.bitmap.eraseColor(0);
             } else {
                 v = new Version(version);
@@ -177,6 +178,7 @@ public class TiledBitmapCanvas implements CanvasLite {
                 mBottomVersion = 0;
     private boolean mVersionInUse = false;
 
+    @Deprecated
     public TiledBitmapCanvas(Bitmap bitmap, int tileSize, int maxVersions) {
         mWidth = bitmap.getWidth();
         mHeight = bitmap.getHeight();
@@ -186,6 +188,7 @@ public class TiledBitmapCanvas implements CanvasLite {
         load(bitmap);
     }
 
+    @Deprecated
     public TiledBitmapCanvas(Bitmap bitmap) {
         this(bitmap, DEFAULT_TILE_SIZE, DEFAULT_NUM_VERSIONS);
     }
@@ -199,6 +202,7 @@ public class TiledBitmapCanvas implements CanvasLite {
         load(null);
     }
 
+    @Deprecated
     public TiledBitmapCanvas(int w, int h, Bitmap.Config config) {
         this(w, h, config, DEFAULT_TILE_SIZE, DEFAULT_NUM_VERSIONS);
     }
